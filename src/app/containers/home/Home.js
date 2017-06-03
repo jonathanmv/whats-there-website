@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as viewsActions      from '../../redux/modules/views';
 import * as lexActions      from '../../redux/modules/actions/lexActions';
 import * as lexSelectors      from '../../redux/modules/selectors/lexSelectors';
+import * as plaidActions      from '../../redux/modules/actions/plaidActions';
 import { Home }               from '../../views';
 
 
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch) => {
     {
       enterHome: viewsActions.enterHome,
       leaveHome: viewsActions.leaveHome,
-      submitQuery: lexActions.submitQuery
+      submitQuery: lexActions.submitQuery,
+      openPlaid: plaidActions.openPlaid
     },
     dispatch
   );
