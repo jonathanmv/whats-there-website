@@ -13,7 +13,8 @@
     "serve-dev": "npm run dev && nodemon ./src/server/index.js",
     "serve-prod": "npm run prod && node ./src/server/index.js",
     "sync": "aws s3 sync docs s3://whats-there-website --profile jonathanmv",
-    "deploy": "npm run prod && npm run sync"
+    "deploy": "npm run prod && npm run sync",
+    "merge": "git pull origin develop && git checkout develop && git merge --no-ff $branch -m 'Merged into develop' && git push origin develop && git checkout $branch && git pull origin develop"
   },
   "keywords": [
     "react",
