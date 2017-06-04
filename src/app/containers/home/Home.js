@@ -5,13 +5,15 @@ import { bindActionCreators } from 'redux';
 import * as viewsActions      from '../../redux/modules/views';
 import * as lexActions      from '../../redux/modules/actions/lexActions';
 import * as lexSelectors      from '../../redux/modules/selectors/lexSelectors';
+import * as plaidSelectors      from '../../redux/modules/selectors/plaidSelectors';
 import { Home }               from '../../views';
 
 
 const mapStateToProps = state => {
   return {
     currentView:  state.views.currentView,
-    lexRequests: lexSelectors.lex(state)
+    lexRequests: lexSelectors.lex(state),
+    plaidTransactions: plaidSelectors.transactions(state)
   };
 };
 

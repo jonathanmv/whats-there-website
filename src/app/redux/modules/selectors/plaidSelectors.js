@@ -12,7 +12,7 @@ export const requestsByType = (requests, type) => requests.filter(request => req
 
 export const requestById = (requests, id) => requests.find(request => request.id == id)
 
-export const successfulRequests = requests => requests.filter(({error}) => !error)
+export const successfulRequests = requests => requests.filter(({error, response}) => !error && !response.error)
 
 export const authenticationRequests = createSelector(
   plaidRequests,
@@ -32,4 +32,9 @@ export const queryTransactionsRequests = createSelector(
 export const successfulQueryTransactionsRequests = createSelector(
   queryTransactionsRequests,
   successfulRequests
+)
+
+export const transactions = createSelector(
+  successfulQueryTransactionsRequests,
+  requests => _.get(requests, '[0].response.transactions') || []
 )

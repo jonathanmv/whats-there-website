@@ -10,7 +10,7 @@ const createHandler = queryTransactions => event => {
   queryTransactions(query)
 }
 
-const Transactions = ({queryTransactions}) => (
+const PlaidQueryTransactions = ({queryTransactions}) => (
   <form onSubmit={createHandler(queryTransactions)}>
     <div className="form-group">
       <label htmlFor="query">Ask me something</label>
@@ -19,8 +19,8 @@ const Transactions = ({queryTransactions}) => (
   </form>
 )
 
-Transactions.propTypes = {
+PlaidQueryTransactions.propTypes = {
   queryTransactions: PropTypes.func.isRequired
 };
 
-export default Transactions;
+export default PlaidQueryTransactions;
