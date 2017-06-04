@@ -43,13 +43,12 @@ export const authenticateAccount = () => dispatch => {
 }
 
 export const queryTransactions = query => (dispatch, getState) => {
-  console.log(query);
-  const plaid = plaidSelectors.plaidRequests(getState()).find(request => !!request)
+  const plaid = plaidSelectors.successfulAuthenticationRequests(getState())[0]
   if (!plaid) {
     throw new Error(`A bank account must be added first`)
   }
 
-  const { access_token } = plaid
+  const { access_token } = plaid.response
   const start_date = moment().subtract(30, 'days').format('YYYY-MM-DD')
   const end_date = moment().format('YYYY-MM-DD')
   const options = { count: 500 }
