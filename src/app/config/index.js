@@ -16,8 +16,7 @@ export const appConfig = {
   },
 
   plaid: {
-    clientId: '5932fdb04e95b8036a6730c3',
-    publicKey: 'f65e621d69834aa1a802aa2c452dbe',
-    secret: 'bc4a2e0507015e18c88a7a1155bc91'
+    serverUrl: 'http://localhost:8000/',
+    publicKey: 'f65e621d69834aa1a802aa2c452dbe'
   }
 };

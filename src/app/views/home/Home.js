@@ -8,6 +8,9 @@ import {Jumbotron}    from '../../components';
 import AnimatedView   from '../../components/animatedView/AnimatedView';
 import LexRequests   from '../../components/lexRequests/LexRequests';
 import MakeLexRequest   from '../../components/makeLexRequest/MakeLexRequest';
+import PlaidAuthenticateAccount from '../../containers/plaid/PlaidAuthenticateAccount';
+import PlaidQueryTransactions from '../../containers/plaid/PlaidQueryTransactions';
+import PlaidTransactions from '../../components/plaid/PlaidTransactions';
 import { Link }       from 'react-router-dom';
 
 class Home extends PureComponent {
@@ -30,11 +33,15 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { lexRequests, submitQuery } = this.props
+    // const { lexRequests, submitQuery } = this.props
+    const { plaidTransactions } = this.props
     return(
       <div className="home">
-        <MakeLexRequest submitQuery={submitQuery} />
-        <LexRequests lexRequests={lexRequests} />
+        <PlaidAuthenticateAccount />
+        <PlaidQueryTransactions />
+        <PlaidTransactions transactions={plaidTransactions} />
+        {/* <MakeLexRequest submitQuery={submitQuery} />
+        <LexRequests lexRequests={lexRequests} /> */}
       </div>
     );
   }
