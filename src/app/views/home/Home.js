@@ -9,6 +9,7 @@ import AnimatedView   from '../../components/animatedView/AnimatedView';
 import LexRequests   from '../../components/lexRequests/LexRequests';
 import MakeLexRequest   from '../../components/makeLexRequest/MakeLexRequest';
 import PlaidAuthenticateAccount from '../../containers/plaid/PlaidAuthenticateAccount';
+import PlaidQueryTransactions from '../../containers/plaid/PlaidQueryTransactions';
 import { Link }       from 'react-router-dom';
 
 class Home extends PureComponent {
@@ -35,6 +36,7 @@ class Home extends PureComponent {
     return(
       <div className="home">
         <PlaidAuthenticateAccount />
+        <PlaidQueryTransactions />
         {/* <MakeLexRequest submitQuery={submitQuery} />
         <LexRequests lexRequests={lexRequests} /> */}
       </div>

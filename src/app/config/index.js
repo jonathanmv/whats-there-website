@@ -16,7 +16,7 @@ export const appConfig = {
   },
 
   plaid: {
-    serverUrl: 'http://localhost:8000/get_access_token',
+    serverUrl: 'http://localhost:8000/',
     publicKey: 'f65e621d69834aa1a802aa2c452dbe'
   }
 };

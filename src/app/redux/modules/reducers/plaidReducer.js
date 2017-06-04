@@ -1,18 +1,18 @@
 import {
-  PLAID_AUTHENTICATION_REQUEST
+  PLAID_AUTHENTICATION_REQUEST,
+  PLAID_QUERY_TRANSACTIONS_REQUEST
 } from '../actions/plaidActions'
 
 import {
-  requestByTimestamp
+  requestById
 } from '../selectors/plaidSelectors'
 
-export const plaidAuthenticationRequest = (state, action = {}) => {
+export const plaidRequest = (state, action = {}) => {
   switch (action.type) {
     case PLAID_AUTHENTICATION_REQUEST:
-      if (!state || state.timestamp == action.timestamp) {
-        const request = { ...action }
-        delete request.type
-        return request
+    case PLAID_QUERY_TRANSACTIONS_REQUEST:
+      if (!state || state.id == action.id) {
+        return { ...action }
       }
       return state
     default:
@@ -23,11 +23,12 @@ export const plaidAuthenticationRequest = (state, action = {}) => {
 export default (state = [], action = {}) => {
   switch (action.type) {
     case PLAID_AUTHENTICATION_REQUEST:
-      const request = requestByTimestamp(state, action.timestamp)
+    case PLAID_QUERY_TRANSACTIONS_REQUEST:
+      const request = requestById(state, action.id)
       if (!request) {
-        return [...state, plaidAuthenticationRequest(null, action)]
+        return [...state, plaidRequest(null, action)]
       }
-      return state.map(request => plaidAuthenticationRequest(request, action))
+      return state.map(request => plaidRequest(request, action))
     default:
       return state
   }

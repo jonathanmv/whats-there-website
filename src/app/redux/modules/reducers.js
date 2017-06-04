@@ -5,12 +5,12 @@ import { combineReducers }  from 'redux';
 import views                from './views';
 import fakeModuleWithFetch  from './fakeModuleWithFetch';
 import lex from './reducers/lexReducer'
-import plaid from './reducers/plaidReducer'
+import plaidRequests from './reducers/plaidReducer'
 
 export default combineReducers({
   views,
   fakeModuleWithFetch,
   lex,
-  plaid,
+  plaidRequests,
   routing: routerReducer
 });

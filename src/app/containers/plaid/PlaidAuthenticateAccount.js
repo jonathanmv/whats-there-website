@@ -15,6 +15,11 @@ export const PlaidAutenticateAccountComponent = ({authenticateAccount}) => (
   </div>
 )
 
+
+PlaidAutenticateAccountComponent.propTypes = {
+  authenticateAccount: PropTypes.func.isRequired
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

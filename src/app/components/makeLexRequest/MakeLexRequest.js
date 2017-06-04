@@ -14,7 +14,7 @@ const createHandler = submitQuery => event => {
 const MakeLexRequest = ({submitQuery}) => (
   <form onSubmit={createHandler(submitQuery)}>
     <div className="form-group">
-      <label for="query">Ask me something</label>
+      <label htmlFor="query">Ask me something</label>
       <input type="text" className="form-control" id="query" placeholder="what's the maximum age" />
     </div>
   </form>
